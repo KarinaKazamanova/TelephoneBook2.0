@@ -14,15 +14,33 @@ def init(n, p, wtd):
 
 
 def add_new_contact(n, p):
-    t_book = gd.get_book_txt()
-    if n not in t_book.keys():
-        note = (n, p)
-        t_book = dict(note)
+    t_book = gd.get_book('txt')
+    t_book [n] = p
     return t_book
-name, phone, what_to_do = gd.get_data()
-# n, p, wtd = init(name, phone, what_to_do)
-t_book = add_new_contact(name, phone)
-print(t_book)
 
-note = add_new_contact(name, phone)
-print(note, name[0])
+
+def delete_contact(n):
+    t_book = gd.get_book('txt')
+    del t_book[n]
+    return t_book
+
+def add_new_phone(n, p):
+    t_book = gd.get_book('txt')
+    t_book[n].append(p)
+    return t_book
+
+
+def update_contact(n, p):
+    t_book = gd.get_book('txt')
+    t_book [n] = p
+    return t_book
+
+def action(wtd, n, p):
+    if wtd == 'новый контакт':
+        add_new_contact(n, p)
+    elif wtd == 'удаление контакта':
+        delete_contact(n)
+    elif wtd == 'обновление номера':
+        update_contact(n, p)
+    elif wtd == 'добавление номера':
+        add_new_phone(n, p)

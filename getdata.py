@@ -7,12 +7,22 @@ def get_data():
 
 def get_book_txt():
     with open('telephonebook.txt', 'r', encoding="utf-8") as tb:
-        book = dict(tb.readline().split()) # Надо переделать
+        book = {}
+        data =  tb.read().split(";") # Надо переделать
+        book [data[0]] = data[1]
     return book
 
 
 def get_book_csv():
-    with open('telephonebook.csv', newline='') as csvfile:
-        book = csv.DictReader(csvfile)
-    return book
-     
+    with open('telephonebook.csv', newline='', encoding="utf-8", errors='ignore') as csvfile:
+        book = {}
+        data = csv.reader(csvfile, delimiter=';', quotechar=';')
+        for row in data:
+            book[row[0]] = row[1]
+        return book
+
+def get_book(format):
+    if format == 'txt':
+        get_book_txt()
+    elif format == 'csv':
+        get_book_csv()
