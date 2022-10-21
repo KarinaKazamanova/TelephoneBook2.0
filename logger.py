@@ -14,8 +14,8 @@ def writing_down_txt(book: dict):
             file.writelines('\n')
 
 
-def writing_down(format):
+def writing_down(format, book: dict):
     if format == 'txt':
-        writing_down_txt()
+        writing_down_txt(book)
     elif format == 'csv':
-        writing_down_csv()
+        writing_down_csv(book)
