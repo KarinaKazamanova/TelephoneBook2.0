@@ -13,39 +13,35 @@ def init(n, p, wtd):
     what_to_do = wtd
 
 
-def add_new_contact(n, p):
-    t_book = gd.get_book('txt')
-    t_book [n] = p
+def add_new_contact(n, p, format):
+    t_book = gd.get_book(format)
+    t_book[n] = p
     return t_book
 
 
-def delete_contact(n):
-    t_book = gd.get_book('txt')
+def delete_contact(n, format):
+    t_book = gd.get_book(format)
     del t_book[n]
     return t_book
 
-def add_new_phone(n, p):
-    t_book = gd.get_book('txt')
+def add_new_phone(n, p, format):
+    t_book = gd.get_book(format)
     t_book[n].append(p)
     return t_book
 
 
-def update_contact(n, p):
-    t_book = gd.get_book('txt')
-    t_book [n] = p
+def update_contact(n, p, format):
+    t_book = gd.get_book(format)
+    t_book[n] = p
     return t_book
 
-def action(wtd, n, p):
+def action(wtd, n, p, format):
     if wtd == 'новый контакт':
-        add_new_contact(n, p)
+        return add_new_contact(n, p, format)
     elif wtd == 'удаление контакта':
-        delete_contact(n)
+        return delete_contact(n, format)
     elif wtd == 'обновление номера':
-        update_contact(n, p)
+        return update_contact(n, p, format)
     elif wtd == 'добавление номера':
-        add_new_phone(n, p)
+        return add_new_phone(n, p, format)
 
-name, phone, what_to_do = gd.get_data_txt()
-print(name)
-print(phone)
-print(what_to_do)

@@ -9,8 +9,7 @@ def writing_down_csv(book: dict):
 
 def writing_down_txt(book: dict):
     with open('telephonebook.txt', 'w', encoding="utf-8") as file:
-        for k, v in book.items():
-            file.writelines(f"{k}; {v}")
+            file.writelines(f"{book}")
             file.writelines('\n')
 
 

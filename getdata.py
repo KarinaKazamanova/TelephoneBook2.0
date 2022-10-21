@@ -2,7 +2,7 @@ import csv
 
 def get_data_txt():
     with open('file.txt', 'r', encoding="utf-8") as file:
-        name, phone, what_to_do = str(file.readline().split(';'))
+        name, phone, what_to_do = file.readline().split(';')
         return (name, phone, what_to_do)  # Нужен картеж
 
 def get_data_csv():
@@ -14,7 +14,7 @@ def get_data_csv():
 def get_book_txt():
     with open('telephonebook.txt', 'r', encoding="utf-8") as tb:
         book = {}
-        data =  tb.read().split(";") # Надо переделать
+        data =  tb.read().split(";")
         book [data[0]] = data[1]
     return book
 
@@ -39,3 +39,5 @@ def get_data(format):
         return get_data_txt()
     elif format == 'csv':
         return get_data_csv()
+
+
