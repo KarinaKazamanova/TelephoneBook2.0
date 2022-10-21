@@ -1,9 +1,15 @@
 import csv 
 
-def get_data():
+def get_data_txt():
     with open('file.txt', 'r', encoding="utf-8") as file:
         name, phone, action = file.readline().split(';')
         return (name, phone, action)  # Нужен картеж
+
+def get_data_csv():
+    with open('file.csv', 'r', encoding="utf-8") as file:
+        name, phone, action = file.readline().split(';')
+        return (name, phone, action)
+
 
 def get_book_txt():
     with open('telephonebook.txt', 'r', encoding="utf-8") as tb:
@@ -26,3 +32,10 @@ def get_book(format):
         get_book_txt()
     elif format == 'csv':
         get_book_csv()
+
+
+def get_data(format):
+    if format == 'txt':
+        get_data_txt()
+    elif format == 'csv':
+        get_data_csv()
