@@ -14,9 +14,9 @@ def init(n, p, wtd):
 
 
 def add_new_contact(n, p):
-    t_book = gd.get_book()
-    if n[0] not in t_book:
-        note = (n[0], n, p)
+    t_book = gd.get_book_txt()
+    if n not in t_book.keys():
+        note = (n, p)
         t_book = dict(note)
     return t_book
 name, phone, what_to_do = gd.get_data()
