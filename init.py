@@ -44,3 +44,8 @@ def action(wtd, n, p):
         update_contact(n, p)
     elif wtd == 'добавление номера':
         add_new_phone(n, p)
+
+name, phone, what_to_do = gd.get_data_txt()
+print(name)
+print(phone)
+print(what_to_do)

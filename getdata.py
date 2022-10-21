@@ -2,15 +2,12 @@ import csv
 
 def get_data_txt():
     with open('file.txt', 'r', encoding="utf-8") as file:
-        data = file.readline().split(';')
-        name = data[0]
-        phone = data[1]
-        what_to_do = data[2]
+        name, phone, what_to_do = str(file.readline().split(';'))
         return (name, phone, what_to_do)  # Нужен картеж
 
 def get_data_csv():
     with open('file.csv', 'r', encoding="utf-8") as file:
-        name, phone, what_to_do = file.readline().split(';')
+        name, phone, what_to_do = str(file.readline().split(';'))
         return (name, phone, what_to_do)
 
 
@@ -32,13 +29,13 @@ def get_book_csv():
 
 def get_book(format):
     if format == 'txt':
-        get_book_txt()
+       return get_book_txt()
     elif format == 'csv':
-        get_book_csv()
+        return get_book_csv()
 
 
 def get_data(format):
     if format == 'txt':
-        get_data_txt()
+        return get_data_txt()
     elif format == 'csv':
-        get_data_csv()
+        return get_data_csv()
