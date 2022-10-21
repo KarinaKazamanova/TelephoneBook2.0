@@ -2,13 +2,16 @@ import csv
 
 def get_data_txt():
     with open('file.txt', 'r', encoding="utf-8") as file:
-        name, phone, action = file.readline().split(';')
-        return (name, phone, action)  # Нужен картеж
+        data = file.readline().split(';')
+        name = data[0]
+        phone = data[1]
+        what_to_do = data[2]
+        return (name, phone, what_to_do)  # Нужен картеж
 
 def get_data_csv():
     with open('file.csv', 'r', encoding="utf-8") as file:
-        name, phone, action = file.readline().split(';')
-        return (name, phone, action)
+        name, phone, what_to_do = file.readline().split(';')
+        return (name, phone, what_to_do)
 
 
 def get_book_txt():
