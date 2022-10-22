@@ -11,6 +11,7 @@ def init(n, p, wtd):
     name = n
     phone = p
     what_to_do = wtd
+   
 
 
 def add_new_contact(n, p, format):
