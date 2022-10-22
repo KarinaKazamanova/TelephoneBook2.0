@@ -13,4 +13,3 @@ t_book = init.action(wtd, n, p, format)
 logger.writing_down(format, t_book)
 
 
-# Петров Александр;89745689253
