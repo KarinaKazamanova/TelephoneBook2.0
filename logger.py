@@ -3,14 +3,15 @@ import csv
 def writing_down_csv(book: dict):
     with open('names.csv', 'w', newline='') as csvfile:
         for k, v in book.items():
-            csvfile.writelines(f"{k}; {v}")
-            csvfile.writelines('\n')
+            csvfile.writelines(f"{k}; {v}", sep= '\n')
+            
 
 
 def writing_down_txt(book: dict):
     with open('telephonebook.txt', 'w', encoding="utf-8") as file:
-            file.writelines(f"{book}")
-            file.writelines('\n')
+        for k, v in book.items():
+            file.writelines(f"{k}; {v}\n")
+
 
 
 def writing_down(format, book: dict):

@@ -27,7 +27,7 @@ def delete_contact(n, format):
 
 def add_new_phone(n, p, format):
     t_book = gd.get_book(format)
-    t_book[n].append(p)
+    t_book[n] = str(t_book[n]) + " / " + str(p)
     return t_book
 
 

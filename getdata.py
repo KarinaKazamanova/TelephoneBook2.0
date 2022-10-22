@@ -73,9 +73,14 @@ def get_action(format):
 # Считывание телкниги txt
 def get_book_txt():
     book = {}
-    with open('telephonebook.txt', 'r', encoding="utf-8") as tb:
-        data = [str(i) for i in tb.read().split(";")]
-        book [data[0]] = data[1]
+    tb = open('telephonebook.txt', 'r', encoding="utf-8")
+    while True:
+        subdata = tb.readline()
+        if subdata:
+            data = subdata.split(";")
+            book [data[0]] = data[1].strip()
+        if not subdata:
+            break
     return book
     
 
@@ -86,7 +91,7 @@ def get_book_csv():
     with open('telephonebook.csv', newline='', encoding="utf-8", errors='ignore') as csvfile:
         data = csv.reader(csvfile, delimiter=';', quotechar=';')
         for row in data:
-            book[row[0]] = row[1]
+            book[row[0]] = row[1].strip()
         return book
 
 
