@@ -91,7 +91,8 @@ def get_book_csv():
     with open('telephonebook.csv', newline='', encoding="utf-8", errors='ignore') as csvfile:
         data = csv.reader(csvfile, delimiter=';', quotechar=';')
         for row in data:
-            book[row[0]] = row[1].strip()
+            book[row[0][::]] = row[1].strip()
+        print(book)
         return book
 
 

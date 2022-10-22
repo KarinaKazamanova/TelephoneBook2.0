@@ -4,6 +4,7 @@ import logger
 
 
 format = 'txt'
+f = 'csv'
 n = gd.get_name(format)
 p = gd.get_phone(format)
 wtd = gd.get_action(format)

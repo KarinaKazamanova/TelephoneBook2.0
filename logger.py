@@ -1,9 +1,9 @@
 import csv 
 
 def writing_down_csv(book: dict):
-    with open('names.csv', 'w', newline='') as csvfile:
+    with open('telephonebook.csv', 'w', newline='', encoding="utf-8") as csvfile:
         for k, v in book.items():
-            csvfile.writelines(f"{k}; {v}", sep= '\n')
+            csvfile.writelines(f"{k}; {v}\n")
             
 
 
